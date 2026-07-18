@@ -1,0 +1,7 @@
+每个项目可建立自己的文件夹，例如：
+
+project-01/cover.jpg
+project-01/detail-01.jpg
+project-01/detail-02.jpg
+
+封面建议使用 4:3 比例。详情图片路径需要添加到 script.js 对应项目的 images 数组中。

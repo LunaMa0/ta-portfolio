@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="zh-CN" data-lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Project — Technical Artist Portfolio</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="project-page minimal-project-page">
+  <header class="site-header">
+    <a class="brand" href="index.html">TA<span>／</span>PORTFOLIO</a>
+    <a class="back-link" href="index.html#work"><span data-zh>返回作品</span><span data-en>BACK TO WORK</span> ↙</a>
+    <button class="lang-toggle" type="button" aria-label="切换语言"><span class="lang-current">中</span><span class="slash">／</span><span class="lang-other">EN</span></button>
+  </header>
+
+  <main>
+    <section class="case-hero section-pad minimal-case-hero">
+      <div class="minimal-case-meta">
+        <p class="eyebrow" id="case-tag">REAL-TIME / SHADER</p>
+        <p id="case-index">01 / 2026</p>
+      </div>
+      <div class="case-title-row">
+        <h1 id="case-title-zh" data-zh>实时植被系统</h1>
+        <h1 id="case-title-en" data-en>REAL-TIME VEGETATION</h1>
+      </div>
+
+      <div class="case-player visual-01" id="case-player">
+        <video id="case-video" controls playsinline preload="metadata"></video>
+        <div class="media-fallback">
+          <span data-zh>将项目视频放入指定目录后自动显示</span>
+          <span data-en>ADD THE PROJECT VIDEO TO THE ASSETS FOLDER</span>
+          <small id="video-path">assets/videos/project-01.mp4</small>
+        </div>
+      </div>
+    </section>
+
+    <section class="minimal-summary section-pad">
+      <div class="minimal-description">
+        <p data-zh id="case-description-zh">用一两句话介绍这个项目，说明你完成了什么以及最值得关注的视觉或技术成果。</p>
+        <p data-en id="case-description-en">Describe the project in one or two sentences, focusing on what you built and its strongest visual or technical result.</p>
+      </div>
+      <dl class="minimal-facts">
+        <div><dt><span data-zh>类别</span><span data-en>TYPE</span></dt><dd id="case-type">REAL-TIME / SHADER</dd></div>
+        <div><dt><span data-zh>工具</span><span data-en>TOOLS</span></dt><dd id="case-tools">UNREAL ENGINE / HOUDINI</dd></div>
+      </dl>
+    </section>
+
+    <section class="minimal-gallery section-pad" id="case-gallery" hidden></section>
+
+    <nav class="next-project section-pad">
+      <span><span data-zh>下一个项目</span><span data-en>NEXT PROJECT</span></span>
+      <a id="next-project" href="project.html?id=02"><span data-zh>程序化地形工具</span><span data-en>PROCEDURAL TERRAIN TOOL</span> →</a>
+    </nav>
+  </main>
+
+  <footer><p>© 2026 TA PORTFOLIO</p><a href="index.html"><span data-zh>返回首页</span><span data-en>BACK HOME</span> ↑</a></footer>
+  <script src="projects-data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

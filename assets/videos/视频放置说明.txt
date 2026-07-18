@@ -1,0 +1,11 @@
+将首页悬停预览及详情页播放视频放在本文件夹中。
+
+默认文件名：
+project-01.mp4
+project-02.mp4
+project-03.mp4
+project-04.mp4
+project-05.mp4
+project-06.mp4
+
+建议使用 MP4（H.264）格式、无须内嵌声音。首页预览始终静音，详情页可由访客控制声音。
