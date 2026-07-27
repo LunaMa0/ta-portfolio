@@ -157,12 +157,26 @@ if (document.body.classList.contains('project-page')) {
     const player = document.getElementById('case-player');
     player.className = `case-player ${visualClass}`;
     const video = document.getElementById('case-video');
-    document.getElementById('video-path').textContent = project.video || '未填写视频路径';
+    const pathLabel = document.getElementById('video-path');
+    const statusZh = document.getElementById('video-status-zh');
+    const statusEn = document.getElementById('video-status-en');
+    const setVideoStatus = (zhText, enText, showPath = false) => {
+      statusZh.textContent = zhText;
+      statusEn.textContent = enText;
+      pathLabel.hidden = !showPath;
+    };
+    pathLabel.textContent = project.video || '';
     if (project.poster) video.poster = project.poster;
     if (project.video) {
+      setVideoStatus('视频加载中…', 'LOADING VIDEO…');
       video.src = project.video;
       video.addEventListener('loadeddata', () => player.classList.add('has-video'), { once: true });
-      video.addEventListener('error', () => player.classList.remove('has-video'));
+      video.addEventListener('error', () => {
+        player.classList.remove('has-video');
+        setVideoStatus('视频暂时无法加载，请稍后重试', 'VIDEO UNAVAILABLE. PLEASE TRY AGAIN LATER.');
+      });
+    } else {
+      setVideoStatus('该项目暂未添加视频', 'NO VIDEO HAS BEEN ADDED FOR THIS PROJECT.');
     }
 
     const gallery = document.getElementById('case-gallery');
