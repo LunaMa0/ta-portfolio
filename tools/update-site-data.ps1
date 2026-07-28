@@ -93,6 +93,7 @@ try {
             video = ([string]$values[11]).Trim().Replace('\', '/')
             poster = ([string]$values[12]).Trim().Replace('\', '/')
             images = $images
+            placeholder = ([string]$values[14]).Trim().Replace('\', '/')
         }
     }
 

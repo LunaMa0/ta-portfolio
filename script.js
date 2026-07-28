@@ -29,6 +29,24 @@ function createTextElement(tag, className, text) {
   return element;
 }
 
+function applyPlaceholder(element, value) {
+  const raw = String(value || '').trim();
+  if (!raw) return;
+
+  const isCssBackground = /^(?:#[0-9a-f]{3,8}|rgba?\(|hsla?\(|(?:linear|radial|conic)-gradient\(|var\()/i.test(raw);
+  if (isCssBackground) {
+    element.style.background = raw;
+    return;
+  }
+
+  if (/^(?:javascript|data:text\/html):/i.test(raw)) return;
+  const safePath = raw.replace(/\\/g, '/').replace(/["\r\n]/g, '');
+  element.style.backgroundImage = `url("${safePath}")`;
+  element.style.backgroundSize = 'cover';
+  element.style.backgroundPosition = 'center';
+  element.style.backgroundRepeat = 'no-repeat';
+}
+
 function createProjectCard(project, index) {
   const article = document.createElement('article');
   article.className = 'project-card reveal';
@@ -38,6 +56,7 @@ function createProjectCard(project, index) {
 
   const visual = document.createElement('div');
   visual.className = `project-visual visual-${String((index % 6) + 1).padStart(2, '0')}`;
+  applyPlaceholder(visual, project.placeholder);
   visual.appendChild(createTextElement('span', '', project.id));
 
   if (project.poster) {
@@ -156,6 +175,7 @@ if (document.body.classList.contains('project-page')) {
 
     const player = document.getElementById('case-player');
     player.className = `case-player ${visualClass}`;
+    applyPlaceholder(player, project.placeholder);
     const video = document.getElementById('case-video');
     const pathLabel = document.getElementById('video-path');
     const statusZh = document.getElementById('video-status-zh');
